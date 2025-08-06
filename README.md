@@ -1,3 +1,49 @@
+<details>
+<summary>Day 4. Intro to the CLI (Expanded)</summary>
+
+| Command | Purpose | Short Form | Mode | What Happens If Skipped | When to Use | Exam Tip |
+|---|---|---|---|---|---|---|
+| `enable` | Enters privileged EXEC mode from user EXEC mode | `en` | User EXEC | You won’t be able to access configuration commands like `conf t` or show advanced info | Before any configuration, like assigning IPs or setting passwords | First step in most tasks; know its position in command hierarchy |
+| `configure terminal` | Enters global configuration mode | `conf t` | Privileged EXEC | You can't configure interfaces, routing, etc. | After `enable`, to start editing device settings | Commonly used before setting hostname, IP addresses, VLANs |
+| `exit` | Exits current mode (e.g., interface back to global) | — | Varies | You’ll stay in deeper mode, may apply changes to wrong config area | Used after finishing config in sub-modes like `interface` or `line` | Know the difference between `exit` and `end` in exam |
+| `end` | Exits all the way back to privileged EXEC mode | — | Global Config/Sub-Config | You stay in the current config mode unless `exit` is used multiple times | Useful after making multiple changes deep in config | Efficient way to exit quickly, especially in labs |
+
+</details>
+
+---
+
+<details>
+<summary>Day 1. Networking Devices (Expanded)</summary>
+
+| Command | Purpose | Short Form | Mode | What Happens If Skipped | When to Use | Exam Tip |
+|---|---|---|---|---|---|---|
+| `show version` | Shows IOS version, memory, and uptime | — | Privileged EXEC | You miss device details like platform, version, and config register | Initial checks, licensing validation, version upgrades | Exam may show output of this command to ask memory or IOS version |
+| `show running-config` | Displays current active config in RAM | `show run` | Privileged EXEC | You won't know current config or settings | Verifying IP, VLAN, ACL, routing setups | Identify real-time changes vs saved configs |
+| `show startup-config` | Displays saved config in NVRAM | `show start` | Privileged EXEC | You won't know what config will be applied after reboot | After saving config with `copy run start` to validate | Know the difference between this and `show running-config` |
+| `reload` | Restarts the router/switch | — | Privileged EXEC | Device will not reboot, old config may remain active | After saving config or to apply new image | Be aware: can cause downtime unless confirmed |
+
+</details>
+
+---
+
+<details>
+<summary>Day 2. Interfaces And Cables (Expanded)</summary>
+
+| Command | Purpose | Short Form | Mode | What Happens If Skipped | When to Use | Exam Tip |
+|---|---|---|---|---|---|---|
+| `show ip interface brief` | Summarized interface and IP status | `sh ip int brief` | Privileged EXEC | You won’t quickly see interface up/down and IP | Interface checks, troubleshooting | Best for quick overview of all ports and their IPs |
+| `show controllers` | Shows physical status of interface hardware | — | Privileged EXEC | You miss cable or interface hardware issues | Physical layer troubleshooting | Useful when link is up/down inconsistently |
+| `ping <ip>` | Sends ICMP echo to test reachability | — | Any EXEC | You won’t know if device is reachable | Verifying Layer 3 connectivity | Exam trick: ping fails may be ACL or wrong subnet mask |
+| `traceroute <ip>` | Tracks hop path to destination | `tracert` (Windows equivalent) | Any EXEC | You won’t see where path breaks | Network path troubleshooting | Useful in route loop or asymmetry questions |
+
+</details>
+
+
+
+
+
+
+
 # 📘 Cisco CLI Commands Guide for CCNA
 
 This guide lists Cisco IOS CLI commands topic-wise for CCNA preparation.
