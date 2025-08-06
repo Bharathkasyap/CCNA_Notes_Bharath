@@ -61,7 +61,72 @@ This guide includes expanded information for each command: purpose, short form (
 
 </details>
 
-<!-- Placeholder for 6 to 25 updates, continue dynamically if needed -->
+<details>
+<summary>6. Ethernet LAN Switching - Part 2</summary>
+
+| Command | Purpose | Short Form | Mode | What Happens If Skipped | When to Use | Exam Tip |
+|---|---|---|---|---|---|---|
+| `switchport mode access` | Sets port to access mode | — | Interface Config | VLAN assignment won't work | When assigning VLANs to end hosts | Access ports support only one VLAN |
+| `switchport mode trunk` | Enables trunk mode on port | — | Interface Config | VLAN traffic won't pass between switches | To allow multiple VLANs over one link | Needed for inter-switch VLAN communication |
+
+</details>
+
+<details>
+<summary>7. IPv4 Addressing - Part 1</summary>
+
+| Command | Purpose | Short Form | Mode | What Happens If Skipped | When to Use | Exam Tip |
+|---|---|---|---|---|---|---|
+| `ip address <ip> <mask>` | Assign IP to interface | — | Interface Config | Interface won't have Layer 3 address | Basic IP configuration | Exam may test valid subnet assignments |
+| `no shutdown` | Enables interface | `no shut` | Interface Config | Interface stays down | After assigning IP to activate interface | Always required after IP assignment |
+
+</details>
+
+<details>
+<summary>8. IPv4 Addressing - Part 2</summary>
+
+| Command | Purpose | Short Form | Mode | What Happens If Skipped | When to Use | Exam Tip |
+|---|---|---|---|---|---|---|
+| `ip default-gateway <ip>` | Sets default gateway | — | Global Config | Switch can't send traffic outside subnet | For Layer 2 switches needing remote management | Key for remote access to switches |
+
+</details>
+
+<details>
+<summary>9. Switch Interfaces</summary>
+
+| Command | Purpose | Short Form | Mode | What Happens If Skipped | When to Use | Exam Tip |
+|---|---|---|---|---|---|---|
+| `interface <type> <number>` | Accesses specific interface config | — | Global Config | You can't modify port-level settings | Before assigning IP or enabling port | Required for interface-level tasks |
+| `shutdown` | Disables interface | — | Interface Config | Port remains active | Used to turn off unused ports | Helps improve security |
+| `no shutdown` | Enables interface | — | Interface Config | Port remains down | Brings up port after changes | Common mistake to skip in labs |
+
+</details>
+
+<details>
+<summary>10. The IPv4 Header</summary>
+
+| Command | Purpose | Short Form | Mode | What Happens If Skipped | When to Use | Exam Tip |
+|---|---|---|---|---|---|---|
+| `show ip route` | Displays routing table | — | Privileged EXEC | You won’t see learned or static routes | Routing verification | Helps troubleshoot unreachable subnets |
+| `debug ip packet` | Real-time packet debug | — | Privileged EXEC | You can’t monitor live traffic | Deep diagnostics | Use with caution—can overload CPU |
+
+</details>
+
+<details>
+<summary>11. Routing Fundamentals - Part 1</summary>
+
+| Command | Purpose | Short Form | Mode | What Happens If Skipped | When to Use | Exam Tip |
+|---|---|---|---|---|---|---|
+| `ip routing` | Enables routing on device | — | Global Config | Device won’t route packets | On Layer 3 switches or routers | Required for static/dynamic routing |
+| `show ip route` | Shows routing info | — | Privileged EXEC | No visibility into route decisions | To check learned, static, or default routes | Exam often uses this output for questions |
+| `show cdp neighbors` | Shows Cisco neighbors | — | Privileged EXEC | You won’t see connected Cisco devices | Device discovery | Useful when topology is unknown |
+
+</details>
+
+
+
+
+
+
 
 
 
