@@ -1,19 +1,11 @@
-<details>
-<summary>Day 4. Intro to the CLI (Expanded)</summary>
+# 📘 Cisco CLI Commands Guide for CCNA (Expanded Edition)
 
-| Command | Purpose | Short Form | Mode | What Happens If Skipped | When to Use | Exam Tip |
-|---|---|---|---|---|---|---|
-| `enable` | Enters privileged EXEC mode from user EXEC mode | `en` | User EXEC | You won’t be able to access configuration commands like `conf t` or show advanced info | Before any configuration, like assigning IPs or setting passwords | First step in most tasks; know its position in command hierarchy |
-| `configure terminal` | Enters global configuration mode | `conf t` | Privileged EXEC | You can't configure interfaces, routing, etc. | After `enable`, to start editing device settings | Commonly used before setting hostname, IP addresses, VLANs |
-| `exit` | Exits current mode (e.g., interface back to global) | — | Varies | You’ll stay in deeper mode, may apply changes to wrong config area | Used after finishing config in sub-modes like `interface` or `line` | Know the difference between `exit` and `end` in exam |
-| `end` | Exits all the way back to privileged EXEC mode | — | Global Config/Sub-Config | You stay in the current config mode unless `exit` is used multiple times | Useful after making multiple changes deep in config | Efficient way to exit quickly, especially in labs |
-
-</details>
+This guide includes expanded information for each command: purpose, short form (if applicable), command mode, what happens if skipped, when to use it, and exam tips.
 
 ---
 
 <details>
-<summary>Day 1. Networking Devices (Expanded)</summary>
+<summary>1. Networking Devices</summary>
 
 | Command | Purpose | Short Form | Mode | What Happens If Skipped | When to Use | Exam Tip |
 |---|---|---|---|---|---|---|
@@ -24,10 +16,8 @@
 
 </details>
 
----
-
 <details>
-<summary>Day 2. Interfaces And Cables (Expanded)</summary>
+<summary>2. Interfaces And Cables</summary>
 
 | Command | Purpose | Short Form | Mode | What Happens If Skipped | When to Use | Exam Tip |
 |---|---|---|---|---|---|---|
@@ -37,6 +27,43 @@
 | `traceroute <ip>` | Tracks hop path to destination | `tracert` (Windows equivalent) | Any EXEC | You won’t see where path breaks | Network path troubleshooting | Useful in route loop or asymmetry questions |
 
 </details>
+
+<details>
+<summary>3. OSI Model and TCP/IP Suite</summary>
+
+| Command | Purpose | Short Form | Mode | What Happens If Skipped | When to Use | Exam Tip |
+|---|---|---|---|---|---|---|
+| `show protocols` | Shows configured protocols and addresses | — | Privileged EXEC | You won't know which layer 3 protocols are running | Protocol troubleshooting, Layer 3 validation | Helps check protocol presence like IP, IPX |
+| `telnet <ip>` | Opens remote session using TCP port 23 | — | User/Priv EXEC | You can’t remotely access devices | Older method to manage remote routers/switches | Use only in labs—SSH preferred in production |
+| `ssh <user>@<ip>` | Secure remote access using TCP port 22 | — | User/Priv EXEC | Remote device cannot be securely accessed | Secure CLI management of Cisco devices | Required over Telnet in secure environments |
+
+</details>
+
+<details>
+<summary>4. Intro to the CLI</summary>
+
+| Command | Purpose | Short Form | Mode | What Happens If Skipped | When to Use | Exam Tip |
+|---|---|---|---|---|---|---|
+| `enable` | Enters privileged EXEC mode from user EXEC mode | `en` | User EXEC | You won’t be able to access configuration commands like `conf t` or show advanced info | Before any configuration, like assigning IPs or setting passwords | First step in most tasks; know its position in command hierarchy |
+| `configure terminal` | Enters global configuration mode | `conf t` | Privileged EXEC | You can't configure interfaces, routing, etc. | After `enable`, to start editing device settings | Commonly used before setting hostname, IP addresses, VLANs |
+| `exit` | Exits current mode (e.g., interface back to global) | — | Varies | You’ll stay in deeper mode, may apply changes to wrong config area | Used after finishing config in sub-modes like `interface` or `line` | Know the difference between `exit` and `end` in exam |
+| `end` | Exits all the way back to privileged EXEC mode | — | Global Config/Sub-Config | You stay in the current config mode unless `exit` is used multiple times | Useful after making multiple changes deep in config | Efficient way to exit quickly, especially in labs |
+
+</details>
+
+<details>
+<summary>5. Ethernet LAN Switching - Part 1</summary>
+
+| Command | Purpose | Short Form | Mode | What Happens If Skipped | When to Use | Exam Tip |
+|---|---|---|---|---|---|---|
+| `show mac address-table` | Shows MAC addresses learned on switch ports | `show mac` | Privileged EXEC | You can’t verify which MACs are mapped to which ports | Useful for verifying switching behavior and troubleshooting | Key for troubleshooting unknown host connections |
+| `clear mac address-table dynamic` | Clears all dynamically learned MACs | — | Privileged EXEC | Old MAC entries may persist, causing stale switching info | Before testing MAC learning or clearing network changes | Often used before lab tasks or test cases |
+
+</details>
+
+<!-- Placeholder for 6 to 25 updates, continue dynamically if needed -->
+
+
 
 
 
