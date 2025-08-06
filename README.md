@@ -1,6 +1,6 @@
-# 📘 Cisco CLI Commands Guide for CCNA (Expanded Edition)
+# 📘 Cisco CLI Commands Guide for CCNA 
 
-This guide includes expanded information for each command: purpose, short form (if applicable), command mode, what happens if skipped, when to use it, and exam tips.
+This guide lists Cisco IOS CLI commands topic-wise for CCNA preparation for each command: purpose, short form (if applicable), command mode, what happens if skipped, when to use it, and exam tips.
 
 ---
 
