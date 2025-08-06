@@ -349,3 +349,327 @@ This guide lists Cisco IOS CLI commands topic-wise for CCNA preparation.
 
 </details>
 
+<details>
+<summary>Day 34. Standard Access Control List</summary>
+
+| Command | Purpose |
+|---|---|
+| `access-list 10 permit 192.168.1.0 0.0.0.255` | Create standard ACL to permit a subnet |
+| `interface <intf>` | Enter interface |
+| `ip access-group 10 in` | Apply ACL to interface inbound |
+
+</details>
+
+<details>
+<summary>Day 35. Extended Access Control List</summary>
+
+| Command | Purpose |
+|---|---|
+| `access-list 101 permit tcp 192.168.1.0 0.0.0.255 any eq 80` | Permit HTTP from subnet |
+| `ip access-group 101 out` | Apply ACL outbound |
+
+</details>
+
+<details>
+<summary>Day 36. CDP and LLDP</summary>
+
+| Command | Purpose |
+|---|---|
+| `show cdp neighbors` | View Cisco neighbors |
+| `show lldp neighbors` | View LLDP neighbors |
+
+</details>
+
+<details>
+<summary>Day 37. NTP - Network Time Protocol</summary>
+
+| Command | Purpose |
+|---|---|
+| `ntp server <ip>` | Set NTP server |
+| `show ntp status` | Verify NTP sync |
+
+</details>
+
+<details>
+<summary>Day 38. DNS - Domain Name System</summary>
+
+| Command | Purpose |
+|---|---|
+| `ip name-server <ip>` | Set DNS server |
+| `ping www.cisco.com` | Test DNS resolution |
+
+</details>
+
+<details>
+<summary>Day 39. DHCP - Dynamic Host Configuration Protocol</summary>
+
+| Command | Purpose |
+|---|---|
+| `ip dhcp pool <name>` | Create DHCP pool |
+| `network 192.168.1.0 255.255.255.0` | Define network |
+| `default-router 192.168.1.1` | Set default gateway |
+
+</details>
+
+<details>
+<summary>Day 40. SNMP - Simple Network Management Protocol</summary>
+
+| Command | Purpose |
+|---|---|
+| `snmp-server community public RO` | Configure SNMP read-only community |
+| `show snmp` | Displays SNMP status |
+
+</details>
+
+<details>
+<summary>Day 41. SYSLOG</summary>
+
+| Command | Purpose |
+|---|---|
+| `logging <server-ip>` | Set Syslog server |
+| `logging trap warnings` | Set logging level |
+
+</details>
+
+<details>
+<summary>Day 42. SSH - Secure Shell</summary>
+
+| Command | Purpose |
+|---|---|
+| `hostname Router` | Set hostname |
+| `ip domain-name local` | Set domain name |
+| `crypto key generate rsa` | Generate RSA keys |
+| `username admin password cisco` | Create user |
+| `line vty 0 4` | Configure SSH access |
+
+</details>
+
+<details>
+<summary>Day 43. FTP and TFTP</summary>
+
+| Command | Purpose |
+|---|---|
+| `copy running-config tftp` | Backup config to TFTP |
+| `copy tftp running-config` | Restore config from TFTP |
+
+</details>
+
+<details>
+<summary>Day 44. NAT (Static) - Part 1</summary>
+
+| Command | Purpose |
+|---|---|
+| `ip nat inside source static 192.168.1.10 203.0.113.10` | Configure static NAT |
+
+</details>
+
+<details>
+<summary>Day 45. NAT (Dynamic) - Part 2</summary>
+
+| Command | Purpose |
+|---|---|
+| `ip nat pool MYPOOL 203.0.113.100 203.0.113.110 netmask 255.255.255.0` | Define NAT pool |
+| `access-list 1 permit 192.168.1.0 0.0.0.255` | Match inside network |
+| `ip nat inside source list 1 pool MYPOOL` | Apply dynamic NAT |
+
+</details>
+
+<details>
+<summary>Day 46. QoS (Voice VLAN) - Part 1</summary>
+
+| Command | Purpose |
+|---|---|
+| `mls qos` | Enable QoS globally |
+| `switchport voice vlan 10` | Assign voice VLAN to port |
+
+</details>
+
+<details>
+<summary>Day 47. QoS (Quality of Service) - Part 2</summary>
+
+| Command | Purpose |
+|---|---|
+| `priority-queue out` | Enable priority queuing |
+| `mls qos trust dscp` | Trust DSCP values on port |
+
+</details>
+
+<details>
+<summary>Day 48. Security Fundamentals</summary>
+
+| Command | Purpose |
+|---|---|
+| `service password-encryption` | Encrypt passwords |
+| `enable secret <pwd>` | Set secure privileged exec password |
+
+</details>
+
+<details>
+<summary>Day 49. Port Security</summary>
+
+| Command | Purpose |
+|---|---|
+| `switchport port-security` | Enable port security |
+| `switchport port-security maximum 1` | Limit MAC addresses |
+| `switchport port-security violation shutdown` | Shutdown on violation |
+
+</details>
+
+<details>
+<summary>Day 50. DHCP Snooping</summary>
+
+| Command | Purpose |
+|---|---|
+| `ip dhcp snooping` | Enable DHCP snooping |
+| `ip dhcp snooping vlan 1` | Enable for VLAN 1 |
+| `ip dhcp snooping trust` | Trust port (uplink) |
+
+</details>
+
+<details>
+<summary>Day 51. Dynamic Arp Inspection</summary>
+
+| Command | Purpose |
+|---|---|
+| `ip arp inspection vlan 1` | Enable DAI for VLAN 1 |
+| `ip arp inspection trust` | Trust specific port |
+
+</details>
+
+<details>
+<summary>Day 52. LAN Architectures</summary>
+
+| Command | Purpose |
+|---|---|
+| `show vlan brief` | Displays VLAN info |
+| `show interfaces status` | Displays interface and speed info |
+
+</details>
+
+<details>
+<summary>Day 53. WAN Architectures</summary>
+
+| Command | Purpose |
+|---|---|
+| `show ip interface` | Displays IP and encapsulation on interfaces |
+| `encapsulation ppp` | Set PPP on serial interface |
+
+</details>
+
+<details>
+<summary>Day 54. Virtualization and Cloud - Part1</summary>
+
+| Command | Purpose |
+|---|---|
+| `show version` | Confirms platform and virtualization support |
+| `show platform` | Displays hardware capabilities |
+
+</details>
+
+<details>
+<summary>Day 55. Virtualization (Containers) - Part 2</summary>
+
+| Command | Purpose |
+|---|---|
+| `docker ps` | Lists running containers (Cisco IOx environments) |
+
+</details>
+
+<details>
+<summary>Day 56. Virtualization (VRF) - Part3</summary>
+
+| Command | Purpose |
+|---|---|
+| `ip vrf <name>` | Creates VRF |
+| `ip route vrf <name> <dest> <mask> <next-hop>` | Routing inside VRF |
+
+</details>
+
+<details>
+<summary>Day 57. Wireless Fundamentals</summary>
+
+| Command | Purpose |
+|---|---|
+| `show controllers dot11Radio 0` | Wireless radio details |
+| `show wlan summary` | List of WLANs |
+
+</details>
+
+<details>
+<summary>Day 58. Wireless Architectures</summary>
+
+| Command | Purpose |
+|---|---|
+| `show wireless stats` | Wireless client and AP statistics |
+
+</details>
+
+<details>
+<summary>Day 59. Wireless Security</summary>
+
+| Command | Purpose |
+|---|---|
+| `security wpa psk set-key ascii 0 <key>` | Set WPA key |
+
+</details>
+
+<details>
+<summary>Day 60. Wireless Configuration</summary>
+
+| Command | Purpose |
+|---|---|
+| `interface dot11Radio 0` | Access wireless interface |
+| `ssid <name>` | Create SSID |
+| `authentication open` | Set auth type |
+
+</details>
+
+<details>
+<summary>Day 61. Introduction to Network Automation</summary>
+
+| Command | Purpose |
+|---|---|
+| `show version | json` | Show output in JSON (NX-OS) |
+| `restconf` | Enable RESTCONF on modern IOS XE |
+
+</details>
+
+<details>
+<summary>Day 62. JSON, XML, and YAML</summary>
+
+| Command | Purpose |
+|---|---|
+| `show interfaces | include json` | Use JSON output format if supported |
+
+</details>
+
+<details>
+<summary>Day 63. REST APIs</summary>
+
+| Command | Purpose |
+|---|---|
+| `ip http server` | Enable HTTP server |
+| `ip http secure-server` | Enable HTTPS server |
+
+</details>
+
+<details>
+<summary>Day 64. SOFTWARE DEFINED NETWORKING</summary>
+
+| Command | Purpose |
+|---|---|
+| `sdm prefer lanbase-routing` | Optimize for SDN-like routing |
+| `show license` | Show SDN or DNA licensing |
+
+</details>
+
+<details>
+<summary>Day 65. ANSIBLE, PUPPET, and CHEF</summary>
+
+| Command | Purpose |
+|---|---|
+| `netconf-yang` | Enable NETCONF/YANG for automation |
+| `show management api` | Verify APIs for automation tools |
+
+</details>
+
