@@ -397,9 +397,7 @@ line vty 0 4
 ---
 
 
----
-
-# CCNA Additional Concepts – Part 6
+## CCNA Additional Concepts 
 
 This section continues to expand on topics often overlooked but crucial for deeper CCNA understanding and real-world job readiness.
 
