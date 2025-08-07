@@ -252,6 +252,283 @@ with ConnectHandler(**device) as net_connect:
 
 ---
 
+
+---
+
+# CCNA Extended Revision – Extra Concepts & Syntax Cheat Sheet
+
+This section includes **additional topics** often tested in the CCNA 200-301 exam and a **dedicated syntax reference** to speed up CLI recall.
+
+---
+
+## 🔧 Extended Topics
+
+### 1. IPv6 Essentials
+
+| Term        | Description                                  | Example                          |
+|-------------|----------------------------------------------|----------------------------------|
+| Link-Local  | Local segment-only addresses                 | `FE80::/10`                      |
+| Global Unicast | Routable IPv6 addresses                  | `2001::/16`                      |
+| EUI-64      | Interface ID auto-configured from MAC        | `ipv6 address 2001::/64 eui-64`  |
+| Static Route | Manual IPv6 route                           | `ipv6 route 2001:db8::/64 ::1`   |
+
+### 2. DHCP Configuration (Router as Server)
+
+```bash
+service dhcp
+ip dhcp pool SALES
+  network 192.168.10.0 255.255.255.0
+  default-router 192.168.10.1
+  dns-server 8.8.8.8
+```
+
+### 3. NAT Types
+
+| Type     | Description                            |
+|----------|----------------------------------------|
+| Static   | One-to-one IP translation              |
+| Dynamic  | Pool of public IPs to private IPs      |
+| PAT      | Many-to-one (overload with ports)      |
+
+### 4. Router on a Stick (Inter-VLAN Routing)
+
+```bash
+interface Gi0/0.10
+ encapsulation dot1Q 10
+ ip address 192.168.10.1 255.255.255.0
+```
+
+### 5. VTP (VLAN Trunking Protocol)
+
+| Mode    | Description                   |
+|---------|-------------------------------|
+| Server  | Can add/delete VLANs          |
+| Client  | Receives from server only     |
+| Transparent | Does not participate, forwards only |
+
+```bash
+vtp mode transparent
+vtp domain CCNA
+vtp password cisco
+```
+
+### 6. Telnet Access
+
+```bash
+line vty 0 4
+ password cisco
+ login
+ transport input telnet
+```
+
+---
+
+## 📘 CCNA Syntax Quick Reference
+
+### 🔹 Interface Setup
+
+```bash
+enable
+configure terminal
+interface g0/1
+ip address 192.168.1.1 255.255.255.0
+no shutdown
+exit
+```
+
+### 🔹 VLAN Commands
+
+```bash
+vlan 10
+name Sales
+interface f0/1
+switchport mode access
+switchport access vlan 10
+```
+
+### 🔹 Static Routing
+
+```bash
+ip route 192.168.2.0 255.255.255.0 10.0.0.2
+```
+
+### 🔹 OSPF
+
+```bash
+router ospf 1
+network 10.0.0.0 0.0.0.255 area 0
+```
+
+### 🔹 EIGRP
+
+```bash
+router eigrp 100
+network 192.168.0.0
+no auto-summary
+```
+
+### 🔹 NAT (PAT)
+
+```bash
+access-list 1 permit 192.168.1.0 0.0.0.255
+ip nat inside source list 1 interface g0/0 overload
+interface g0/0
+ ip nat outside
+interface g0/1
+ ip nat inside
+```
+
+### 🔹 ACLs
+
+```bash
+access-list 100 permit tcp any any eq 80
+interface g0/0
+ip access-group 100 in
+```
+
+### 🔹 SSH
+
+```bash
+ip domain-name mydomain.com
+crypto key generate rsa
+username admin secret ccna123
+line vty 0 4
+ login local
+ transport input ssh
+```
+
+---
+
+
+---
+
+# CCNA Additional Concepts – Part 6
+
+This section continues to expand on topics often overlooked but crucial for deeper CCNA understanding and real-world job readiness.
+
+---
+
+## 1. Switchport Modes (Access vs Trunk)
+
+| Mode          | Description                                   |
+|---------------|-----------------------------------------------|
+| Access        | Assigned to a single VLAN                     |
+| Trunk         | Carries multiple VLANs using tagging (802.1Q) |
+| Dynamic Auto  | Passive; forms trunk if the other end is set to trunk or desirable |
+| Dynamic Desirable | Actively attempts to form a trunk        |
+
+```bash
+interface f0/1
+ switchport mode access
+ switchport access vlan 10
+
+interface f0/2
+ switchport mode trunk
+ switchport trunk allowed vlan 10,20
+```
+
+---
+
+## 2. Native VLAN and VLAN Mismatches
+
+- Native VLAN is the **untagged VLAN** on a trunk port.
+- Must match on both sides of the trunk link.
+- Mismatched native VLANs can cause **security and traffic issues**.
+
+```bash
+switchport trunk native vlan 99
+```
+
+---
+
+## 3. STP Port States
+
+| State        | Description                                      |
+|--------------|--------------------------------------------------|
+| Blocking     | Listens for BPDUs but does not forward frames    |
+| Listening    | Accepts BPDUs, prepares to transition            |
+| Learning     | Learns MACs but doesn't forward                  |
+| Forwarding   | Forwards frames and learns MACs                  |
+| Disabled     | Administratively shut down                       |
+
+---
+
+## 4. STP Port Roles
+
+| Role        | Description                                         |
+|-------------|-----------------------------------------------------|
+| Root Port   | Path to Root Bridge (one per non-root switch)       |
+| Designated  | One per segment; forwards traffic to/from that segment |
+| Alternate   | Backup path (in RSTP)                               |
+| Backup      | Redundant link on same segment (in RSTP)            |
+
+---
+
+## 5. Syslog Severity Levels
+
+| Level | Name       | Description               |
+|-------|------------|---------------------------|
+| 0     | Emergency  | System is unusable        |
+| 1     | Alert      | Immediate action needed   |
+| 2     | Critical   | Critical condition        |
+| 3     | Error      | Error condition           |
+| 4     | Warning    | Warning condition         |
+| 5     | Notice     | Normal but significant    |
+| 6     | Informational | Informational messages |
+| 7     | Debug      | Debug-level messages      |
+
+---
+
+## 6. DNS and DHCP Relay
+
+- When a router forwards a DHCP request from a different subnet to a DHCP server.
+
+```bash
+interface g0/0
+ ip helper-address 192.168.1.10
+```
+
+---
+
+## 7. Router Boot Sequence
+
+1. POST
+2. Bootstrap runs
+3. IOS loaded from flash
+4. Startup-config from NVRAM loaded
+5. If none found → setup mode
+
+Useful commands:
+```bash
+show version
+show flash:
+show startup-config
+```
+
+---
+
+## 8. Password Recovery Steps (Cisco)
+
+1. Reboot and enter **ROMmon mode**
+2. Change config register:
+   ```bash
+   confreg 0x2142
+   ```
+3. Restart and enter privileged exec
+4. Copy startup-config to running-config
+5. Reset password and save config:
+   ```bash
+   copy startup-config running-config
+   enable secret NEWPASS
+   config-register 0x2102
+   write memory
+   ```
+
+---
+
+
+✅ **Tip:** Bookmark this file as your go-to syntax reference during hands-on lab practice.
+
 ✔️ Keep these notes close during practice and review to reinforce your muscle memory.
 
 📌 Final Tip: CCNA is command-heavy. Practice commands every day. You'll remember what you *use*.
