@@ -522,6 +522,103 @@ show startup-config
 ---
 
 
+## CCNA Extended– Exam Traps, Troubleshooting & Labs
+
+This part focuses on **tricky exam questions**, **real-world issues**, and **lab-based guidance** that help reinforce practical knowledge.
+
+---
+
+## 🧠 1. Common Exam Traps to Watch For
+
+| Trap Type          | What to Watch Out For                                             |
+|--------------------|-------------------------------------------------------------------|
+| **Wrong mask**     | CIDR vs. subnet mismatch (`/25` vs. `/24`)                        |
+| **Wrong native VLAN** | Trunk links with mismatched native VLANs cause issues         |
+| **Unidirectional link** | Switch A sees Switch B, but not vice-versa – likely trunk issue |
+| **ACL direction**  | Make sure it's `in` or `out` on the correct interface             |
+| **OSPF wildcard**  | Exam may show `10.0.0.0 0.0.255.255` instead of `10.0.0.0/16`     |
+| **No `no shutdown`** | Interfaces stay down unless manually enabled                   |
+
+---
+
+## 🔍 2. Real-World Troubleshooting Use Cases
+
+### A. PC Cannot Ping Gateway
+
+```bash
+# Step-by-step
+show ip interface brief         # Check IP assigned and interface status
+show running-config interface x # Verify VLAN and IP
+show vlan brief                 # Is the port in the correct VLAN?
+```
+
+### B. Inter-VLAN Routing Fails
+
+```bash
+# Troubleshooting
+show ip route                   # Routes to VLANs must exist
+show interfaces trunk           # Check if trunk links are active
+show vlan brief                 # Ports assigned to correct VLANs?
+```
+
+### C. OSPF Neighbors Not Forming
+
+```bash
+show ip ospf neighbor           # Should be FULL state
+show ip protocols               # Confirm router-id, networks
+show ip ospf interface brief    # Check OSPF on correct interface
+```
+
+---
+
+## 🧪 3. Lab Ideas with Minimum Setup
+
+### Lab 1: VLAN & Trunking
+
+**Devices**: 2 Switches, 2 PCs  
+**Objective**:
+- Create VLANs 10 and 20
+- Assign PC1 to VLAN 10, PC2 to VLAN 20
+- Trunk between switches
+
+### Lab 2: Router on a Stick
+
+**Devices**: 1 Switch, 1 Router, 2 PCs  
+**Objective**:
+- Configure subinterfaces on router
+- Enable VLAN-based communication across PCs
+
+### Lab 3: Static + OSPF Routing
+
+**Devices**: 2 Routers, 1 Switch  
+**Objective**:
+- Use static route between local LANs
+- Configure OSPF to share remote routes
+
+---
+
+## 🛠 4. High-Yield Commands for Labs
+
+```bash
+show ip interface brief
+show interface trunk
+show vlan brief
+show ip route
+show ip ospf neighbor
+show spanning-tree
+show access-lists
+debug ip icmp
+debug ip routing
+```
+
+---
+
+📌 Tip: When in doubt, check Layer 1 first, then interface config, then routing/NAT/ACL.
+
+Let me know if you want Packet Tracer lab files or a GitHub structure to document your labs.
+
+
+
 ✅ **Tip:** Bookmark this file as your go-to syntax reference during hands-on lab practice.
 
 ✔️ Keep these notes close during practice and review to reinforce your muscle memory.
