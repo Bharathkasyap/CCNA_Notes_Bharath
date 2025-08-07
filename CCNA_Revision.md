@@ -252,10 +252,7 @@ with ConnectHandler(**device) as net_connect:
 
 ---
 
-
----
-
-# CCNA Extended Revision – Extra Concepts & Syntax Cheat Sheet
+## CCNA Extended Revision – Extra Concepts & Syntax Cheat Sheet
 
 This section includes **additional topics** often tested in the CCNA 200-301 exam and a **dedicated syntax reference** to speed up CLI recall.
 
