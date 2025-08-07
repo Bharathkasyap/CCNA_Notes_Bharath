@@ -14,7 +14,7 @@ This repository contains my personal study notes and CLI command references whil
 
 | File Name              | Description                                        |
 |------------------------|----------------------------------------------------|
-| `CCNA_CLI_Commands.md` | Collection of commonly used Cisco CLI commands     |
+| [`CCNA_CLI_Commands.md`](https://github.com/Bharathkasyap/CCNA_Notes_Bharath/blob/main/CCNA_Revision.md) | Collection of commonly used Cisco CLI commands     |
 | `CCNA_Revision.md`     | Quick revision notes for important CCNA topics     |
 | `README.md`            | Project overview and file summary                  |
 
