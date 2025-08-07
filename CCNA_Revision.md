@@ -698,6 +698,134 @@ This section outlines the **most common difficulties**, **trick questions**, and
 ---
 
 
+
+## CCNA Professional Revision: Final Checklist Before Exam
+
+This section provides a focused list of **must-know concepts**, **commands**, and **mental strategies** that candidates should revise **on the day before the exam**.
+
+---
+
+## ✅ 1. Subnetting
+
+- Be able to **calculate subnets within 20 seconds**
+- Memorize:
+  - `/24` → 256 IPs → 254 usable
+  - `/30` → 4 IPs → 2 usable
+  - `Wildcard mask` = Inverse of subnet mask
+- **Practice quick math**:
+  ```
+  /26 = 64 block size
+  /27 = 32
+  /28 = 16
+  /29 = 8
+  /30 = 4
+  ```
+
+---
+
+## ✅ 2. Routing Protocols (Syntax + Concepts)
+
+- **Static Routing**:
+  ```bash
+  ip route 192.168.2.0 255.255.255.0 10.0.0.1
+  ```
+
+- **OSPF**:
+  ```bash
+  router ospf 1
+  network 10.0.0.0 0.0.0.255 area 0
+  router-id 1.1.1.1
+  ```
+
+- **EIGRP**:
+  ```bash
+  router eigrp 100
+  network 192.168.1.0
+  no auto-summary
+  ```
+
+---
+
+## ✅ 3. VLANs & Trunks
+
+- Know how to:
+  - Create VLAN
+  - Assign port
+  - Configure trunk
+- Watch for:
+  - **Native VLAN mismatch**
+  - VLAN not allowed on trunk
+
+---
+
+## ✅ 4. ACLs & NAT (Trickiest)
+
+- **Standard ACL** close to destination  
+- **Extended ACL** close to source
+- NAT Overload:
+  ```bash
+  ip nat inside source list 1 interface g0/0 overload
+  ```
+
+---
+
+## ✅ 5. Show & Debug Commands
+
+| Purpose                | Command                        |
+|------------------------|--------------------------------|
+| IP & interface status  | `show ip interface brief`      |
+| VLAN config            | `show vlan brief`              |
+| Trunking info          | `show interfaces trunk`        |
+| OSPF neighbor state    | `show ip ospf neighbor`        |
+| NAT entries            | `show ip nat translations`     |
+| MAC table              | `show mac address-table`       |
+| IP to MAC              | `show ip arp`                  |
+| Active ACLs            | `show access-lists`            |
+
+---
+
+## ✅ 6. Wireless Quick Facts
+
+- 2.4GHz → Channels: 1, 6, 11 (non-overlapping)
+- 5GHz → More channels, less interference
+- WPA3 is most secure
+- PSK vs 802.1X (Enterprise)
+
+---
+
+## ✅ 7. IPv6 Key Points
+
+- **LLA**: FE80::/10
+- **GUA**: 2000::/3
+- Static route: `ipv6 route 2001::/64 ::1`
+
+---
+
+## ✅ 8. Lab Simulation Tips
+
+- Always run `show run` and `show ip int brief` first
+- If ping fails, check:
+  1. Interface up?
+  2. IP configured?
+  3. Route exists?
+  4. ACL/NAT applied?
+
+---
+
+## ✅ 9. Exam Day Strategy
+
+- Skip subnetting-heavy questions initially, come back later
+- Flag long questions, answer all short ones first
+- Drag-and-drop questions are **not timed separately**
+- Timebox each section:
+  - 50 Qs → 45–50 mins max
+  - Leave time for review
+
+---
+
+
+
+
 📌 Tip: When in doubt, check Layer 1 first, then interface config, then routing/NAT/ACL.
 
 📌 **Pro Tip**: During exam, flag confusing questions. Focus on quick wins first, then come back.
