@@ -51,9 +51,6 @@ This section covers the foundational building blocks of modern networks.
 
 ---
 
-
----
-
 ## 2. LAN Switching
 
 This section focuses on Layer 2 technologies that build local area networks.
