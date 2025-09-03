@@ -1,4 +1,4 @@
-# Dynamic Routing Notes for CCNA Beginners
+# Dynamic Routing Notes
 
 ## Introduction to Dynamic Routing
 
