@@ -34,7 +34,7 @@ Dynamic routing involves configuring a routing protocol on routers, allowing the
 
 Dynamic routing protocols allow routers to advertise their connected networks and learn routes from neighbors, forming **adjacencies** (neighbor relationships) to exchange routing information. The protocols determine the best route to each destination based on a **metric** and prioritize routes using **administrative distance (AD)**.
 
-**Network Topology Example** (from transcript):
+**Network Topology Example**:
 - Four routers: R1, R2, R3, R4.
 - R4 has a LAN (192.168.4.0/24).
 - R1 connects to R2 (10.0.12.0/30) and R3 (10.0.13.0/30).
@@ -116,7 +116,7 @@ A **metric** is a value used by a routing protocol to determine the best route t
    - CCNA Relevance: Minimal; know it’s a link state protocol.
    - **Analogy**: IS-IS is like a basic map where every road has the same cost unless customized.
 
-**Example from Transcript**:
+**Example**:
 - R1 learns two routes to 192.168.4.0/24:
   - Via R2 (GigabitEthernet links, lower cost).
   - Via R3 (FastEthernet link, higher cost).
