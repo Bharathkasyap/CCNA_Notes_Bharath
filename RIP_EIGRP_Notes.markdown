@@ -1,4 +1,4 @@
-# RIP and EIGRP Notes for CCNA Beginners
+# RIP and EIGRP Notes 
 
 ## Introduction
 
