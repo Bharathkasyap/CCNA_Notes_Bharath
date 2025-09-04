@@ -1,4 +1,4 @@
-# OSPF Part 1 Notes for CCNA Beginners
+# OSPF Part 1 Notes
 
 ## Introduction
 
@@ -266,8 +266,6 @@ show ip ospf database
    - **A**: `router-id 1.1.1.1`.
    - **Explanation**: OSPF uses `router-id` (vs. EIGRP’s `eigrp router-id`). Requires `clear ip ospf process`. Other options are incorrect or indirect.
    - **Tip**: Memorize “OSPF: router-id, EIGRP: eigrp router-id.”
-
-**Bonus Question (Boson ExSim)**: Not detailed in transcript, but typically tests OSPF concepts like configuration, terms, or rules.
 
 **Analogy**: The quiz is like a city planner’s test: know the map rules (areas), traffic signals (configurations), and roles (ABR, ASBR). Practice makes you the master planner.
 
